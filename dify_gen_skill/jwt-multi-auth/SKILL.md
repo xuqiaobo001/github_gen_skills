@@ -2,6 +2,7 @@
 name: jwt-multi-auth
 description: Use this skill when implementing JWT authentication, multi-strategy auth (JWT/API Key/OAuth), token extraction from headers/cookies/query params, or CSRF protection. Triggers on keywords like "JWT auth", "multi-auth", "API key authentication", "token verification", "CSRF token".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # JWT 多策略认证体系

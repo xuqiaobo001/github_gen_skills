@@ -2,6 +2,7 @@
 name: flask-blueprint-api
 description: Use this skill when organizing multiple API domains with Flask Blueprints, setting up separate URL prefixes and CORS policies per API group, or structuring console/service/web/internal APIs. Triggers on keywords like "Flask Blueprint", "API routing", "CORS policy", "multi-API", "URL prefix".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Flask Blueprint 多 API 域路由组织

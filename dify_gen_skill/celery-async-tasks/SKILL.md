@@ -2,6 +2,7 @@
 name: celery-async-tasks
 description: Use this skill when implementing async task queues with Celery, organizing background tasks by business domain, setting up task retry strategies, or separating task queues for different priorities. Triggers on keywords like "Celery", "async task", "background job", "task queue", "retry strategy".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Celery 异步任务处理框架

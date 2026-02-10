@@ -2,6 +2,7 @@
 name: nextjs-enterprise-scaffold
 description: Use this skill when creating a new Next.js enterprise project with App Router, organizing Layout Groups, structuring API integration layers (contract/service/component), or setting up business-domain component organization. Triggers on keywords like "Next.js scaffold", "App Router", "Layout Groups", "enterprise frontend", "Next.js project structure".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Next.js 企业级项目脚手架

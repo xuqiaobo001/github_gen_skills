@@ -2,6 +2,7 @@
 name: domain-error-hierarchy
 description: Use this skill when designing a hierarchical exception system, implementing global error handlers that map exceptions to HTTP status codes, or organizing domain/service layer errors. Triggers on keywords like "error hierarchy", "exception handling", "domain error", "error handler", "HTTP status mapping".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 领域异常层次体系

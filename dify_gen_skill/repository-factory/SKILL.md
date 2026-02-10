@@ -2,6 +2,7 @@
 name: repository-factory
 description: Use this skill when implementing the Repository pattern with Factory for data access abstraction, supporting multiple storage backends (vector databases, file storage), or needing to swap data layer implementations. Triggers on keywords like "repository pattern", "factory pattern", "data access layer", "vector database abstraction", "storage backend".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Repository Factory 数据访问层

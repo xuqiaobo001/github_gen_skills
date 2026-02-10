@@ -2,6 +2,7 @@
 name: i18n-namespace-system
 description: Use this skill when implementing internationalization (i18n) with namespace-based organization, setting up multi-language support with i18next, or configuring RSC server-side and client-side dual-mode i18n. Triggers on keywords like "i18n", "internationalization", "multi-language", "i18next", "translation namespace".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 类型安全的 i18n 命名空间体系

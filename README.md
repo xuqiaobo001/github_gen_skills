@@ -10,12 +10,35 @@
 
 ```
 github_gen_skill/
-├── dify_gen_skill/          # Dify — 开源 LLM 应用平台（17 个技能）
-│   ├── backend_skills/      #   后端技能 (10 个)
-│   ├── frontend_skills/     #   前端技能 (5 个)
-│   ├── infra_skills/        #   基础设施技能 (2 个)
+├── dify_gen_skill/                      # Dify — 开源 LLM 应用平台（17 个技能）
+│   ├── flask-ddd-scaffold/              #   Flask DDD 分层架构脚手架
+│   ├── multi-tenant-rbac/               #   多租户 RBAC 权限体系
+│   ├── jwt-multi-auth/                  #   JWT 多策略认证
+│   ├── repository-factory/              #   Repository Factory 数据访问层
+│   ├── celery-async-tasks/              #   Celery 异步任务框架
+│   ├── pydantic-config-management/      #   Pydantic 配置管理
+│   ├── flask-blueprint-api/             #   Flask Blueprint 多 API 域
+│   ├── otel-observability/              #   OpenTelemetry 可观测性
+│   ├── domain-error-hierarchy/          #   领域异常层次体系
+│   ├── plugin-extension-system/         #   插件化扩展体系
+│   ├── nextjs-enterprise-scaffold/      #   Next.js 企业级脚手架
+│   ├── orpc-contract-first-api/         #   oRPC 契约优先 API
+│   ├── multi-layer-state-management/    #   多层状态管理
+│   ├── i18n-namespace-system/           #   i18n 命名空间体系
+│   ├── tailwind-component-system/       #   Tailwind + CVA 组件系统
+│   ├── docker-compose-fullstack/        #   Docker Compose 全栈部署
+│   ├── event-driven-architecture/       #   事件驱动架构
 │   └── README.md
+├── ascend_skill_gen/                    # 华为 ModelArts 相关技能
 └── README.md
+```
+
+每个 skill 目录遵循标准 Claude Code Skill 格式：
+
+```
+<skill-name>/
+├── SKILL.md        # 技能定义（含 YAML frontmatter: name, description, version, license）
+└── LICENSE.txt     # Apache 2.0 许可证
 ```
 
 ## 已收录项目

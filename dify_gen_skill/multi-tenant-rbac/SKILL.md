@@ -2,6 +2,7 @@
 name: multi-tenant-rbac
 description: Use this skill when implementing multi-tenant workspace isolation, role-based access control (RBAC), permission decorators, or tenant data isolation in a SaaS system. Triggers on keywords like "multi-tenant", "RBAC", "role permission", "workspace isolation", "tenant data filtering".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 多租户 RBAC 权限体系

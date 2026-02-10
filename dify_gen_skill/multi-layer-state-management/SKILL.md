@@ -2,6 +2,7 @@
 name: multi-layer-state-management
 description: Use this skill when designing frontend state management architecture, choosing between Context/Jotai/Zustand/TanStack Query/React Form, or organizing state by update frequency and scope. Triggers on keywords like "state management", "Zustand", "TanStack Query", "React Context", "Jotai", "frontend state".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 多层状态管理体系

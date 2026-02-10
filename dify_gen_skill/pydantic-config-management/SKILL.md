@@ -2,6 +2,7 @@
 name: pydantic-config-management
 description: Use this skill when implementing type-safe configuration management with Pydantic BaseSettings, organizing config by functional domain using Mixins, or setting up environment-variable-driven configuration. Triggers on keywords like "Pydantic config", "BaseSettings", "environment variables", "config management", "frozen config".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Pydantic 配置管理体系

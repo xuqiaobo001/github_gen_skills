@@ -2,6 +2,7 @@
 name: docker-compose-fullstack
 description: Use this skill when setting up Docker Compose for full-stack deployment, organizing application services and middleware separately, configuring Nginx reverse proxy, or managing container orchestration. Triggers on keywords like "Docker Compose", "container deployment", "Nginx reverse proxy", "middleware orchestration".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Docker Compose 全栈部署

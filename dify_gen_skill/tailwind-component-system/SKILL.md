@@ -2,6 +2,7 @@
 name: tailwind-component-system
 description: Use this skill when building a reusable UI component library with Tailwind CSS and CVA (class-variance-authority), implementing component variants, or setting up design tokens. Triggers on keywords like "Tailwind component", "CVA", "component variants", "design tokens", "cn() utility".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Tailwind + CVA 组件变体系统

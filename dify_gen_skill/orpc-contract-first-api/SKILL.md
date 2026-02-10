@@ -2,6 +2,7 @@
 name: orpc-contract-first-api
 description: Use this skill when implementing contract-first API design with oRPC, defining type-safe API contracts in TypeScript, integrating TanStack Query with typed API hooks, or structuring frontend API layers. Triggers on keywords like "oRPC", "contract-first API", "type-safe API", "TanStack Query integration", "API contract".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # oRPC 契约优先 API 集成

@@ -2,6 +2,7 @@
 name: otel-observability
 description: Use this skill when implementing OpenTelemetry distributed tracing, setting up auto-instrumentation for Flask/SQLAlchemy/Celery/Redis, injecting Trace/Span IDs into logs and response headers, or integrating Sentry. Triggers on keywords like "OpenTelemetry", "distributed tracing", "observability", "Trace ID", "instrumentation".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # OpenTelemetry 全链路可观测性

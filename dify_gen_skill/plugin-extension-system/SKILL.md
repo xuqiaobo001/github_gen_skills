@@ -2,6 +2,7 @@
 name: plugin-extension-system
 description: Use this skill when designing a plugin/extension system, implementing abstract base classes for plugin contracts, using Registry pattern for plugin management, or building Provider Adapter patterns. Triggers on keywords like "plugin system", "extension", "registry pattern", "provider adapter", "plugin architecture".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 插件化扩展体系

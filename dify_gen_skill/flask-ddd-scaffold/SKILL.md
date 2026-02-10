@@ -2,6 +2,7 @@
 name: flask-ddd-scaffold
 description: Use this skill when creating a new Flask backend project with DDD layered architecture, setting up project scaffolding with Application Factory pattern, or organizing Flask code into Controllers/Services/Core/Models layers. Triggers on keywords like "Flask project structure", "DDD scaffold", "Flask layered architecture", "application factory".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # Flask DDD 分层架构脚手架

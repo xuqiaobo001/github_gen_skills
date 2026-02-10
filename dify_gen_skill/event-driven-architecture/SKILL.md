@@ -2,6 +2,7 @@
 name: event-driven-architecture
 description: Use this skill when implementing event-driven patterns to decouple business side effects, using Blinker signals for domain events, or organizing event publishers and subscribers. Triggers on keywords like "event-driven", "domain event", "Blinker signal", "event subscriber", "side effect decoupling".
 version: 1.0.0
+license: Apache 2.0, see LICENSE.txt
 ---
 
 # 事件驱动架构
