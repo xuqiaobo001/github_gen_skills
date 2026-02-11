@@ -70,19 +70,116 @@ auto_gen_skills/
 - **操作指南** — 分步骤操作说明、命令示例、配置模板
 - **Reference Documentation** — 官方文档链接
 
-## 使用方式
+## 在 Claude Code 中安装部署
 
-### 1. 作为 Claude Code Skills 加载
+### 前置条件
 
-将技能文件加载到 Claude Code 中，AI 助手将自动获得对应领域的专业知识，辅助完成开发与运维任务。
+- 已安装 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI 工具
+- 项目目录下已初始化 `.claude/` 配置目录（首次运行 `claude` 命令时自动创建）
 
-### 2. 作为学习材料
+### Skills 发现机制
 
-阅读各项目的技能文件，系统性学习架构模式与云服务运维实践。
+Claude Code 从以下位置自动发现并加载 Skills：
 
-### 3. 作为架构参考
+| 作用域 | 路径 | 说明 |
+|--------|------|------|
+| 项目级 | `<project-root>/.claude/skills/<skill-name>/SKILL.md` | 仅当前项目可用，可通过 Git 共享给团队 |
+| 用户级 | `~/.claude/skills/<skill-name>/SKILL.md` | 所有项目可用，仅限当前用户 |
 
-在构建新项目或管理云资源时，参考已收录的设计模式与操作指南。
+Claude Code 采用三级渐进加载策略：
+1. **元数据加载** — 启动时仅读取所有 Skills 的 `name` 和 `description` 字段
+2. **按需加载** — 当对话内容匹配某个 Skill 的描述时，加载完整 `SKILL.md`
+3. **资源加载** — 如 Skill 目录下包含 `scripts/`、`references/`、`assets/` 子目录，按需加载
+
+### 方式一：复制到项目目录（推荐）
+
+适合团队协作，Skills 随项目代码一起版本管理。
+
+```bash
+# 进入你的项目根目录
+cd /path/to/your/project
+
+# 创建 skills 目录
+mkdir -p .claude/skills
+
+# 克隆本仓库
+git clone https://github.com/xuqiaobo001/auto_gen_skills.git /tmp/auto_gen_skills
+
+# 按需复制单个 skill
+cp -r /tmp/auto_gen_skills/dify_gen_skill/flask-ddd-scaffold .claude/skills/
+
+# 或批量复制某个项目的全部 skills
+cp -r /tmp/auto_gen_skills/dify_gen_skill/* .claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_standard_skills/* .claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_devserver_skills/* .claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_cluster_skills/* .claude/skills/
+```
+
+### 方式二：安装到用户目录（全局可用）
+
+适合个人使用，所有项目共享同一套 Skills。
+
+```bash
+mkdir -p ~/.claude/skills
+
+# 复制 Dify 架构技能
+cp -r /tmp/auto_gen_skills/dify_gen_skill/* ~/.claude/skills/
+
+# 复制 Ascend / ModelArts 运维技能
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_standard_skills/* ~/.claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_devserver_skills/* ~/.claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_cluster_skills/* ~/.claude/skills/
+```
+
+### 方式三：符号链接（便于同步更新）
+
+克隆仓库后通过符号链接引用，`git pull` 即可获取最新 Skills。
+
+```bash
+# 克隆仓库到固定位置
+git clone https://github.com/xuqiaobo001/auto_gen_skills.git ~/auto_gen_skills
+
+# 进入项目目录
+cd /path/to/your/project
+mkdir -p .claude/skills
+
+# 批量链接所有 skills
+for dir in ~/auto_gen_skills/dify_gen_skill/*/; do
+  ln -sf "$dir" .claude/skills/$(basename "$dir")
+done
+for dir in ~/auto_gen_skills/ascend_skill_gen/ma_*/*/; do
+  ln -sf "$dir" .claude/skills/$(basename "$dir")
+done
+```
+
+### 验证安装
+
+启动 Claude Code，输入 `/` 查看已加载的 Skills 列表：
+
+```
+$ claude
+> /flask-ddd-scaffold
+> /ascend-distributed-training
+> /lite-cluster-plugin
+```
+
+Claude 也会根据对话内容自动匹配并加载相关 Skill，无需手动调用。
+
+### 注意事项
+
+- 每个 skill 目录必须包含 `SKILL.md` 文件（大写），这是 Claude Code 识别 skill 的唯一入口
+- YAML frontmatter 中 `name` 和 `description` 为必需字段
+- `name` 字段要求：小写字母、数字、连字符，最长 64 字符
+- 建议按需安装，避免一次性加载过多 Skills 占用上下文窗口
+- 更新 Skills 后需重启 Claude Code 会话才能生效
+- 建议将 `.claude/skills/` 加入项目 `.gitignore`（如不希望 Skills 进入版本控制）
+
+## 其他使用方式
+
+除了在 Claude Code 中加载，本仓库的 Skills 还可以：
+
+- **作为学习材料** — 阅读各项目的技能文件，系统性学习架构模式与云服务运维实践
+- **作为架构参考** — 在构建新项目或管理云资源时，参考已收录的设计模式与操作指南
 
 ## 贡献
 

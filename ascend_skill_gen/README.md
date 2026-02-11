@@ -99,6 +99,95 @@ license: Apache 2.0
 - [文档链接](url)
 ```
 
+## 在 Claude Code 中安装使用
+
+### 前置条件
+
+- 已安装 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI 工具
+- 项目目录下已初始化 `.claude/` 配置目录（首次运行 `claude` 命令时自动创建）
+
+### 安装方式
+
+Claude Code 从以下两个位置发现 Skills：
+
+| 位置 | 作用域 | 路径 |
+|------|--------|------|
+| 项目级 | 仅当前项目可用 | `<project-root>/.claude/skills/<skill-name>/SKILL.md` |
+| 用户级 | 所有项目可用 | `~/.claude/skills/<skill-name>/SKILL.md` |
+
+#### 方式一：安装到当前项目（推荐）
+
+```bash
+# 进入你的项目根目录
+cd /path/to/your/project
+
+# 创建 skills 目录
+mkdir -p .claude/skills
+
+# 克隆仓库
+git clone https://github.com/xuqiaobo001/auto_gen_skills.git /tmp/auto_gen_skills
+
+# 复制所需的 skill（以 ascend-distributed-training 为例）
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_standard_skills/ascend-distributed-training .claude/skills/
+
+# 或批量复制某一类别的全部 skills
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_standard_skills/* .claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_devserver_skills/* .claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_cluster_skills/* .claude/skills/
+```
+
+#### 方式二：安装到用户目录（全局可用）
+
+```bash
+# 创建用户级 skills 目录
+mkdir -p ~/.claude/skills
+
+# 复制全部 skills
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_standard_skills/* ~/.claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_devserver_skills/* ~/.claude/skills/
+cp -r /tmp/auto_gen_skills/ascend_skill_gen/ma_lite_cluster_skills/* ~/.claude/skills/
+```
+
+#### 方式三：使用符号链接（便于同步更新）
+
+```bash
+# 克隆仓库到固定位置
+git clone https://github.com/xuqiaobo001/auto_gen_skills.git ~/auto_gen_skills
+
+# 创建符号链接（以项目级为例）
+cd /path/to/your/project
+mkdir -p .claude/skills
+
+# 链接单个 skill
+ln -s ~/auto_gen_skills/ascend_skill_gen/ma_standard_skills/ascend-distributed-training .claude/skills/
+
+# 或用脚本批量链接所有 skills
+for dir in ~/auto_gen_skills/ascend_skill_gen/ma_*/*/; do
+  skill_name=$(basename "$dir")
+  ln -sf "$dir" .claude/skills/"$skill_name"
+done
+```
+
+### 验证安装
+
+安装完成后，启动 Claude Code 并输入 `/` 查看可用的 slash commands，已安装的 skills 会以其 `name` 字段显示：
+
+```
+$ claude
+> /ascend-distributed-training
+> /lite-server-quickstart
+> /lite-cluster-plugin
+```
+
+Claude 也会根据对话内容自动匹配相关 skill，无需手动调用。
+
+### 注意事项
+
+- 每个 skill 目录必须包含 `SKILL.md` 文件（大写），这是 Claude Code 识别 skill 的唯一入口
+- `SKILL.md` 的 YAML frontmatter 中 `name` 和 `description` 为必需字段
+- 建议按需安装，避免一次性加载过多 skills 占用上下文窗口
+- 更新 skills 后需重启 Claude Code 会话才能生效
+
 ## 数据源
 
 Skills 基于以下华为云官方文档目录生成：
